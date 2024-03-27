@@ -1,0 +1,221 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+:root {
+    --bold-text-color: hsl(300, 43%, 22%);
+    --soft-pink: hsl(333, 80%, 67%);
+    --light-text-color: hsl(303, 10%, 53%);
+    --rate-bg-color: hsl(300, 24%, 96%);
+    --bg-color: hsl(0, 0%, 100%);
+    --fFamily: "League Spartan", sans-serif;
+    --fSize: clamp(.75rem, .5rem + .5vw, 1.25rem);
+}
+
+body {
+    width: 100%;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg-color);
+    padding: 5rem 2rem;
+    font-family: var(--fFamily);
+    font-size: var(--fSize);
+}
+
+header, main, footer {
+    width: 90%;
+    max-width: 25rem;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-block-end: 2.5rem;
+    text-align: center;
+}
+
+header > .textInfo > h1 {
+    margin-block-end: 1rem;
+    padding: 0 3rem;
+    color: var(--bold-text-color);
+    font-weight: 700;
+    line-height: 1;
+}
+
+header > .textInfo > p {
+    color: var(--light-text-color);
+    font-weight: 500;
+    line-height: 1.4;
+    padding: 0 1.25rem;
+}
+
+header > .rating {
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    row-gap: .75rem;
+}
+
+header > .rating > .ratingOne, .ratingTwo, .ratingThree {
+    background-color: var(--rate-bg-color);
+    padding: .5rem 0;
+    border-radius: .35rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: .4rem;
+}
+
+.stars {
+    display: flex;
+    flex-direction: row;
+    gap: .2rem;
+}
+
+.rating p {
+    color: var(--bold-text-color);
+    font-weight: 700;
+}
+
+main {
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    row-gap: .75rem;
+    margin-block-end: 2rem;
+}
+
+main > section {
+    background-color: var(--bold-text-color);
+    border-radius: .35rem;
+    color: var(--bg-color);
+    padding: 1.7rem 1.5rem;
+}
+
+main > section > .hero {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    margin-block-end: 1rem;
+}
+
+main > section > .hero > img {
+    max-width: 100%;
+    width: 2.5rem;
+    border-radius: 50%;
+}
+
+main > section > .hero > .heroInfo > p:nth-child(1) {
+    font-weight: 500;
+    margin-block-end: .1rem;
+}
+
+main > section > .hero > .heroInfo > p:nth-child(2) {
+    font-weight: 500;
+    color: var(--soft-pink);
+}
+
+main > section > p {
+    line-height: 1.5;
+    padding-inline-end: 2.5rem;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    gap: .75rem;
+    color: var(--bold-text-color);
+    font-weight: 700;
+}
+
+footer > p > a {
+    color: var(--soft-pink);
+    text-decoration: none;
+}
+
+footer > p > a:visited {
+    color: var(--soft-pink);
+}
+
+footer > p > a:hover {
+    color: blue;
+}
+
+@media (min-width: 1024px) {
+    body {
+        padding: 5rem 10rem;
+    }
+
+    header, main, footer {
+        width: 100%;
+        max-width: 100rem;
+    }
+
+    header {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 3rem;
+        text-align: left;
+        margin-block-end: 5rem;
+    }
+
+    header > .textInfo > h1 {
+        font-size: clamp(1.25rem, 2.5rem + 1vw, 5rem);
+        padding: 0 3rem 0 0;
+    }
+
+    header > .textInfo > p {
+        padding: 0 8rem 0 0;
+    }
+
+    header > .rating > .ratingOne, .ratingTwo, .ratingThree {
+        flex-direction: row;
+        gap: 2rem;
+        padding: 0 0;
+    }
+
+    header > .rating {
+        grid-template-columns: repeat(9, 1fr);
+    }
+
+    header > .rating > .ratingOne {
+        grid-column: 1/8;
+    }
+
+    header > .rating > .ratingTwo {
+        grid-column: 2/9;
+    }
+
+    header > .rating > .ratingThree {
+        grid-column: 3/10;
+    }
+
+    main {
+        grid-template-rows: repeat(11, 1rem);
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 1.5rem;
+    }
+
+    main > section:nth-child(1) {
+        grid-row: 1/10;
+    }
+
+    main > section:nth-child(2) {
+        grid-row: 2/11;
+    }
+
+    main > section:nth-child(3) {
+        grid-row: 3/12;
+    }
+
+    main > section {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 1.7rem 1.5rem;
+    }
+}
